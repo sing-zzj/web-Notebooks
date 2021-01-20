@@ -233,9 +233,9 @@
   ​	HTML表单是由一个或多个小部件组成的。这些小部件可以是**文本字段(单行或多行)**、**选择框**、**按钮**、**复选框**或**单选按钮**。大多数情况下，这些小部件与描述其目的的标签配对——正确实现的标签能够清楚地指示视力正常的用户和盲人用户输入表单所需的内容。
   
   <figure>
-      <img src="images/表单.png" alt="表单控件" width="700" height="550"/>
+      <img src="images/表单.png" alt="表单控件" title="表单控件" width="700" height="550"/>
       <br />
-      <figcaption><i>表单控件<i></figcaption>
+      <!-- <figcaption><i>表单控件<i></figcaption> -->
   </figure>
 
 
@@ -328,7 +328,7 @@
 
   ​		**checked** 特性用来指定页面加载时哪个值会被选定，同一组中的单选按钮只能有一个。
 
-  ​	**复选框**s
+  ​	**复选框**
 
   ```html
   <form>
@@ -374,7 +374,153 @@
 
   ​		**selected** 特性用来指定页面加载时哪个值会被选定。
 
-  ​		
+######   ​	多选框
+
+```html
+<form>
+    <p>
+        Do you want to select one?
+    </p>
+    <select name="instuments" size="2" multiple="multiple">
+        <option value="guitar">Guitar</option>
+        <option value='drums'>drums</option>
+        <option value="bass">Bass</option>
+        <option value='keyboard' selected="selected">keyboard</option>
+    </select>
+</form>
+```
+
+​		size 属性可以让select下拉框显示多个值
+
+​		multiple 属性可以让用户选择多个值，但是在PC上需要按住Control
+
+​	**发送（提交内容到服务器）**
+
+​		**文件上传域**
+
+​			让用户上传图像，视频，PDF...。必须将\<form>元素上的method特性值设置为post。
+
+```html
+<form method="post">
+    <P>Upload your song in mp3 format:</P>
+    <input type="file" name="user-song" /><br />
+    <input type="submit" value='Upload'>
+
+</form>
+```
+
+​		\<input >元素
+
+​		--type="file"
+
+​		**提交按钮**
+
+​		--type="submit"
+
+​		value 特性值可以设置按钮上的值，可以不设置name的值。
+
+​		**图像按钮**
+
+```html
+<from>
+	<input type="image" src="images/subscribe.jpg" width='100' height="100">
+</from>
+```
+
+​		\<input>
+
+​		--type="image" 
+
+​		**按钮和隐藏控件**
+
+```html
+<form>
+    <button>
+        <img src="" alt='add' width='10' height="10" /> ADD
+    </button>
+    <input type="hidden" name="bookmark" value="lyrics" />
+</form>
+```
+
+​		\<button> ：让用户更好的控制按钮的显示方式，并且允许其他元素在\<button>内。
+
+​		\<input>
+
+​		--type="hidden"
+
+​		这类控件不会显示在页面上。
+
+​	**标签表单控件**
+
+```html
+<label>Age: <input type="text" name="age" /></label>
+<br />
+
+Gender:
+<input id="female" type="radio" name="gender" value='f' />
+<label for="female">Female</label>
+<input id="male" type="radio" name="gender" value='m' />
+<label for="male">Male</label>
+```
+
+​	\<label>
+
+​	for 特性用来声明标签控件标注的是哪个表单控件。
+
+​	使用方式：
+
+						1. 将文本说明和表单输入框全部包围起来
+   						2. 与表单控件分开，使用for特性来指明\<label>元素关联的表单空间（如单选控件）
+
+**组合表单元素**
+
+```html
+<fieldset>
+	<legend>Contact details</legend>
+	<label>Email:<br />
+		<input type="text" name="email" />
+	</label><br />
+	<label>Mobile:<br />
+		<input type="text" name="mobile" />
+	</label><br />
+	<label>Telephone:<br />
+		<input type="text" name="telephone" />
+	</label>
+</fieldset>
+```
+\<fieldset> 可将相关的表单控件置于该元素内。
+
+\<legend> 跟在\<fieldset>后面并且包含一个标题
+
+**HTML5:日期控件**
+
+```html
+<form method="post">
+	<label for='username'>Departure date:</label>
+	<input type="date" name="depart" />
+	<input type="submit" value='Submit' />
+</form>
+
+```
+​	\<input>
+
+​	--type="date"
+
+**HTML5:搜索输入控件**
+
+```html
+<form action="http://www.example.org/search.php">
+    <p>
+        Search
+    </p>
+	<input type="search" name="search" />
+    <input type='submit' value="Search" />
+</form>
+```
+
+​	\<input>
+
+​	--type="search"
 
 - ##### 缩略语
 
